@@ -21,6 +21,13 @@ module.exports = {
         yellow: {
           500: '#F7DD43',
         },
+        red: {
+          500: '#DB4437',
+          600: '#B62C20',
+        },
+      },
+      backgroundImage: {
+        gradient: "url('/bg-effects.png')",
       },
     },
   },
