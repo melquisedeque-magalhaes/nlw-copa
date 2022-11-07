@@ -10,6 +10,7 @@ import { guessRoutes } from "./routes/guessRoutes";
 import { authRoutes } from "./routes/authRoutes";
 
 import { envSchema } from './envSchema'
+import { gameRoutes } from './routes/gameRoutes';
 
 async function bootstrap() {
   
@@ -31,6 +32,7 @@ async function bootstrap() {
   await fastify.register(poolRoutes)
   await fastify.register(guessRoutes)
   await fastify.register(authRoutes)
+  await fastify.register(gameRoutes)
 
   await fastify.listen({
     port: 3333,

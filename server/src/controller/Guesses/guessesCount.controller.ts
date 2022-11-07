@@ -1,10 +1,10 @@
-import { FastifyReply, FastifyRequest } from "fastify";
-import { z } from "zod";
-import { countUserService } from "../../service/User/countUser.service";
+import { FastifyReply } from "fastify"
+import { z } from "zod"
+import { guessesCountService } from "../../service/Guesses/guessesCount.service"
 
-export async function countUserController(request: FastifyRequest, reply: FastifyReply) {
+export async function guessesCountController(reply: FastifyReply) {
   try {
-    const { count } = await countUserService()
+    const { count } = await guessesCountService()
 
     return {
       count

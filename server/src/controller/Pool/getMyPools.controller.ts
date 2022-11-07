@@ -1,4 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
+import { z } from "zod";
 import { getMyPoolsService } from "../../service/Pool/getMyPools.service";
 
 export async function getMyPoolsController(request: FastifyRequest, reply: FastifyReply) {
@@ -9,8 +10,18 @@ export async function getMyPoolsController(request: FastifyRequest, reply: Fasti
       myPools
     }
   }catch (err) {
-    return reply.status(400).send({
-      message: err
-    })
+    if (err instanceof z.ZodError) {
+      return reply.status(400).send({
+        statusCode: 400,
+        error: err.issues[0].code,
+        message: err.issues[0].message
+      })
+    }
+
+    if(err instanceof Error){
+      return reply.status(400).send({
+        message: err?.message
+      })
+    }
   }
 }

@@ -17,7 +17,7 @@ export async function signInAndSignUpController(request: FastifyRequest, reply: 
     return {
       token
     }
-  }catch(err) {
+  }catch (err) {
     if (err instanceof z.ZodError) {
       return reply.status(400).send({
         statusCode: 400,
@@ -26,8 +26,10 @@ export async function signInAndSignUpController(request: FastifyRequest, reply: 
       })
     }
 
-    return reply.status(400).send({
-      message: err
-    })
+    if(err instanceof Error){
+      return reply.status(400).send({
+        message: err?.message
+      })
+    }
   }
 }

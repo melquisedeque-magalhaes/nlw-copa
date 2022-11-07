@@ -11,7 +11,7 @@ export async function joinPollController(request: FastifyRequest, reply: Fastify
 
   try {
     await joinPollService({ poolId: id, userId: request.user.sub })
-  }catch(err) {
+  }catch (err) {
     if (err instanceof z.ZodError) {
       return reply.status(400).send({
         statusCode: 400,
@@ -20,9 +20,11 @@ export async function joinPollController(request: FastifyRequest, reply: Fastify
       })
     }
 
-    return reply.status(400).send({
-      message: err
-    })
+    if(err instanceof Error){
+      return reply.status(400).send({
+        message: err?.message
+      })
+    }
   }
     
   return reply.status(201).send()

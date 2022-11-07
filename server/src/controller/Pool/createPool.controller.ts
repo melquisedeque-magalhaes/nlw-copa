@@ -17,7 +17,7 @@ export async function createPoolController(request: FastifyRequest, reply: Fasti
     const { code } = await CreatePoolService({ title, userId: request.user.sub })
 
     return reply.status(201).send({ code })
-  }catch(err) {
+  }catch (err) {
     if (err instanceof z.ZodError) {
       return reply.status(400).send({
         statusCode: 400,
@@ -26,9 +26,11 @@ export async function createPoolController(request: FastifyRequest, reply: Fasti
       })
     }
 
-    return reply.status(400).send({
-      message: err
-    })
+    if(err instanceof Error){
+      return reply.status(400).send({
+        message: err?.message
+      })
+    }
   }
   
 }
