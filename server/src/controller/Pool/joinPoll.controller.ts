@@ -1,16 +1,17 @@
 import { FastifyReply, FastifyRequest } from "fastify"
 import { z } from "zod"
+
 import { joinPollService } from "../../service/Pool/joinPoll.service"
 
 export async function joinPollController(request: FastifyRequest, reply: FastifyReply) {
   const poolJoinParams = z.object({
-    id: z.string() 
+    code: z.string() 
   })
 
-  const { id } = poolJoinParams.parse(request.params)
+  const { code } = poolJoinParams.parse(request.body)
 
   try {
-    await joinPollService({ poolId: id, userId: request.user.sub })
+    await joinPollService({ code, userId: request.user.sub })
   }catch (err) {
     if (err instanceof z.ZodError) {
       return reply.status(400).send({

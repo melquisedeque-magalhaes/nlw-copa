@@ -5,7 +5,7 @@ interface getMyPoolServiceProps {
 }
 
 export async function getMyPoolService({ id }: getMyPoolServiceProps) {
-  const myPool = await prisma.pool.findMany({
+  const myPool = await prisma.pool.findUnique({
     where: {
       id
     },
@@ -20,6 +20,7 @@ export async function getMyPoolService({ id }: getMyPoolServiceProps) {
           id: true,
           user: {
             select: {
+              name: true,
               avatarUrl: true
             }
           },

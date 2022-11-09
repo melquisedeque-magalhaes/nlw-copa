@@ -6,7 +6,7 @@ import { Button } from '../components/Button'
 import { useAuth } from '../hook/useAuth'
 
 export function SignIn() {
-  const { signIn } = useAuth()
+  const { signIn, isUserLoading } = useAuth()
 
   return (
     <Center px={5} flex={1} bgColor="gray.900">
@@ -20,6 +20,10 @@ export function SignIn() {
       title='entrar com google' 
       variant='google' 
       mt={12}
+      isLoading={isUserLoading}
+      _loading={{
+        _spinner: { color: 'white' }
+      }}
     />
 
      <Text 

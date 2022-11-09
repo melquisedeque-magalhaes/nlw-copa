@@ -11,7 +11,7 @@ import { getMyPoolController } from "../controller/Pool/getMyPool.controller";
 export async function poolRoutes(fastify: FastifyInstance) {
   fastify.get('/pools/count', countPoolController)
 
-  fastify.post('/pool/:id/join', {  onRequest: [authorization]  }, joinPollController)
+  fastify.post('/pool/join', {  onRequest: [authorization]  }, joinPollController)
 
   fastify.post('/pool', { onRequest: [authorization]  },  createPoolController)
 

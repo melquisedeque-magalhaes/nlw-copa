@@ -8,7 +8,7 @@ interface ButtonPros extends IButtonProps {
 export function Button({ title, variant = 'default', ...rest }: ButtonPros) {
   const colorBgButton = variant === 'default' ? "yellow.500" : 'red.500'
   const colorTextButton = variant === 'default' ? "gray.950" : 'white'
-  const colorActionPressedButton = variant === 'default' ? "red.600" : "red.600"
+  const colorActionPressedButton = variant === 'default' ? "yellow.600" : "red.600"
 
    return (
     <ButtonNativeBase 

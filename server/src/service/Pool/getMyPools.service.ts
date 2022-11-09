@@ -24,6 +24,7 @@ export async function getMyPoolsService({ userId }: getMyPoolsServiceProps) {
           id: true,
           user: {
             select: {
+              name: true,
               avatarUrl: true
             }
           },

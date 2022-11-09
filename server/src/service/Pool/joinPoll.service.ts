@@ -2,13 +2,13 @@ import { prisma } from "../../lib/prisma"
 
 interface JoinPollServiceProps {
   userId: string
-  poolId: string
+  code: string
 }
 
-export async function joinPollService({ poolId, userId }: JoinPollServiceProps) {
+export async function joinPollService({ code, userId }: JoinPollServiceProps) {
   const findPool = await prisma.pool.findUnique({
     where: {
-      id: poolId
+      code
     },
     include: {
       participants: {
