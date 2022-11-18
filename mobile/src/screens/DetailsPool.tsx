@@ -1,13 +1,14 @@
 import { useRoute } from "@react-navigation/native";
-import { Center, Divider, Heading, HStack, Text, VStack } from "native-base";
+import { Divider, HStack, useToast, VStack } from "native-base";
 import { useEffect, useState } from "react";
-import { SafeAreaView, TouchableOpacity } from "react-native";
-import { CardGame } from "../components/CardGame";
+import { SafeAreaView } from "react-native";
+
+import { Games } from "../components/Games";
 import { Header } from "../components/Header";
 import { HeaderPoolDetails } from "../components/HeaderPoolDetails";
 import { Loading } from "../components/Loading";
 import { Option } from "../components/Option";
-import { ParticipantAvatar } from "../components/ParticipantsAvatar";
+
 import { api } from "../lib/api";
 import { Pool } from "../typings/Pool";
 
@@ -25,6 +26,8 @@ export function DetailsPool() {
 
   const router = useRoute()
 
+  const toast = useToast()
+
   const { id } = router.params as DetailsPoolParams
 
   async function getDataPoll() {
@@ -33,11 +36,15 @@ export function DetailsPool() {
 
       const response = await api.get(`pool/${id}`)
 
-      console.log(response.data.myPool)
-
       setPool(response.data.myPool)
     }catch(err) {
       console.log(err)
+
+      toast.show({
+        title: 'Não foi possivel carregar as informações do bolão!',
+        placement: 'top',
+        bgColor: 'red.500'
+      })
     }finally {
       setIsLoading(false)
     }
@@ -78,17 +85,14 @@ export function DetailsPool() {
             />
 
             <Option 
-              title="Seus palpites"
+              title="Ranking do grupo"
               isSelected={optionSelected === 'ranking'} 
               onPress={() => setOptionSelected('ranking')} 
             />
 
           </HStack>
 
-          <CardGame />
-          <CardGame />
-          <CardGame />
-          <CardGame />
+          <Games poolId={pool.id} />
 
         </VStack>
 

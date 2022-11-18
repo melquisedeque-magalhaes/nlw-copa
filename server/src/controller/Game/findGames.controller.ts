@@ -13,13 +13,17 @@ export async function findGamesController(request: FastifyRequest, reply: Fastif
 
     const { games } = await findGamesService({ poolId: id, userId: request.user.sub })
 
-    return { games: games.map(game => {
-      return {
-        ...games,
-        guess: game.guesses.length > 0 ? game.guesses[0] : null,
-        guesses: undefined
-      }
-    }) }
+    return { 
+      games: 
+        games.map(game => {
+          return {
+            ...game,
+            guess: game.guesses.length > 0 ? game.guesses[0] : null,
+            guesses: undefined
+          }
+        }) 
+    }
+    
   }catch (err) {
     if (err instanceof z.ZodError) {
       return reply.status(400).send({

@@ -11,3 +11,11 @@ export const schemaValidationFindPoolCode = yup.object({
     .required('Erro, por favor digite o código do bolão')
     .min(3, 'Digite no mínimo 3 caracteres')
 })
+
+export const schemaValidationCreateGuess = yup.object({
+  guessFirstTeam: yup.string()
+    .required('Erro, por favor digite um palpite para o primeiro time'),
+
+  guessSecondTeam: yup.string()
+    .required('Erro, por favor digite um palpite para o primeiro time')
+})

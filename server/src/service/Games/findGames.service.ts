@@ -7,6 +7,9 @@ interface findGamesServiceProps {
 
 export async function findGamesService({ poolId, userId }: findGamesServiceProps) {
   const games = await prisma.game.findMany({
+    orderBy: {
+      date: 'desc',
+    },
     include: {
       guesses: {
         where: {

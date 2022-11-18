@@ -22,6 +22,7 @@ export function CreatedPool(){
   const { control, handleSubmit, formState: { errors } } = useForm<handleCreatePoolData>({
     resolver: yupResolver(schemaValidationCreatedPool)
   })
+  
   const [ isLoading, setIsLoading ] = useState(false)
 
   const toast = useToast()
