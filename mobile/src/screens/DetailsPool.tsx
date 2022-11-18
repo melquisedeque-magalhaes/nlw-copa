@@ -1,7 +1,7 @@
 import { useRoute } from "@react-navigation/native";
 import { Divider, HStack, useToast, VStack } from "native-base";
 import { useEffect, useState } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, Share } from "react-native";
 
 import { Games } from "../components/Games";
 import { Header } from "../components/Header";
@@ -50,6 +50,12 @@ export function DetailsPool() {
     }
   }
 
+  function handleShareCode() {
+    Share.share({
+      message: pool.code
+    })
+  }
+
   useEffect(() => {
     getDataPoll()
   }, [id])
@@ -63,7 +69,7 @@ export function DetailsPool() {
   return  (
     <SafeAreaView style={{ flex: 1 }}>
       <VStack flex={1} bgColor="gray.900">
-        <Header showBackButton showShareButton title={pool?.title} />
+        <Header showBackButton showShareButton onShared={handleShareCode} title={pool?.title} />
 
         <VStack mx={5}>
 
@@ -92,7 +98,7 @@ export function DetailsPool() {
 
           </HStack>
 
-          <Games poolId={pool.id} />
+          <Games poolId={pool.id} codePool={pool.code} />
 
         </VStack>
 

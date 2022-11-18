@@ -6,12 +6,14 @@ import { Loading } from  '../components/Loading'
 import { api } from "../lib/api"
 import { Game } from "../typings/Game"
 import { CardGame } from "./CardGame"
+import { EmptyListGames } from "./EmptyListGames"
 
 interface CardGameProps {
   poolId: string
+  codePool: string
 }
 
-export function Games({ poolId }: CardGameProps) {
+export function Games({ poolId, codePool }: CardGameProps) {
 
   const [isLoading, setIsLoading] = useState(true)
 
@@ -54,6 +56,7 @@ export function Games({ poolId }: CardGameProps) {
       data={games}
       keyExtractor={({ id }) => id}
       renderItem={({ item }) => <CardGame poolId={poolId} data={item} key={item.id} />}
+      ListEmptyComponent={<EmptyListGames code={codePool} />}
     />
   )
 }
