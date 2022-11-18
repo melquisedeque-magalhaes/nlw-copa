@@ -1,7 +1,6 @@
 ## :page_with_curl: Projeto
 
-Aplicação feita na última NLW do ano de 2022 com o tema da Copa do mundo!
-Onde é possível criar um bolão e convidar alguém para participar.
+Aplicação para participar de bolões da Copa do Mundo 2022.
 
 ## 🚀 Tecnologias/Bibliotecas utilizadas
 
@@ -11,6 +10,34 @@ Onde é possível criar um bolão e convidar alguém para participar.
 <a href="https://www.prisma.io/" target="_blank"> <img src="https://img.shields.io/badge/-Prisma-3368FF?style=flat-square&logo=prisma&logoColor=white" alt="Prisma"> </a>
 <a href="https://nextjs.org/" target="_blank"> <img src="https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white" alt="Next"> </a>
 <a href="https://reactnative.dev/" target="_blank"> <img src="https://img.shields.io/badge/-ReactNative-61DAFB?style=flat-square&logo=React&logoColor=white" alt="React-Native"> </a>
+
+## ✨ Tecnologia
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Fastify](https://www.fastify.io/)
+- [Prisma](https://www.prisma.io/)
+- E muitas outras…
+
+## 🚀 Como executar
+
+Em todos os projetos, ao acessar a pasta, é preciso baixar os pacotes com o gerenciador de sua preferencia.
+
+Acesse a documentação de cada projeto:
+
+- [Backend](./server/README.md)
+- [Web](./web/README.md)
+- [Mobile](./mobile/README.md)
+
+## 🔖 Layout
+
+Você pode visualizar o layout do projeto através do link abaixo:
+
+- [Layout](https://www.figma.com/community/file/1169028343875283461)
+
+Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
 
 ## 💻 Autor
 
