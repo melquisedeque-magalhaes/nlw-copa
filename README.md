@@ -1,3 +1,12 @@
+<p align="center">
+  <img alt="NLW Copa" src=".github/logo.svg" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=NLW&message=10&color=F7DD43&labelColor=202024" alt="NLW 10 - Copa" />
+  <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
+</p>
+
 ## :page_with_curl: Projeto
 
 Aplicação para participar de bolões da Copa do Mundo 2022.
@@ -38,6 +47,19 @@ Você pode visualizar o layout do projeto através do link abaixo:
 - [Layout](https://www.figma.com/community/file/1169028343875283461)
 
 Lembrando que você precisa ter uma conta no [Figma](http://figma.com/).
+
+<p align="center">
+  <img alt="NLW Copa Desktop" src=".github/desktop-create-pool.png" />
+</p>
+
+<p align="center">
+  <img alt="NLW Copa Mobile" src=".github/mobile.png" />
+</p>
+
+<p align="center">
+  <img alt="NLW Copa Desktop" src=".github/desktop-login.png" />
+</p>
+
 
 ## 💻 Autor
 
