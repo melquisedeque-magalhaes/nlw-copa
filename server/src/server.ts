@@ -35,7 +35,7 @@ async function bootstrap() {
   await fastify.register(gameRoutes)
 
   await fastify.listen({
-    port: 3333
+    port: fastify.config.PORT
   })
 }
 

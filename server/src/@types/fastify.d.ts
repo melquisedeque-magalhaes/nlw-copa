@@ -3,7 +3,8 @@ import { FastifyInstance } from "fastify";
 declare module 'fastify' {
   interface FastifyInstance extends FastifyInstance  {
     config: {  
-      SECRET: string
+      SECRET: string,
+      PORT: number
     };
   }
 }
