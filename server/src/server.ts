@@ -28,6 +28,7 @@ async function bootstrap() {
     secret: fastify.config.SECRET
   })
 
+  
   await fastify.register(userRoutes)
   await fastify.register(poolRoutes)
   await fastify.register(guessRoutes)
