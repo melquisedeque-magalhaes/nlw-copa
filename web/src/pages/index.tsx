@@ -26,7 +26,8 @@ export default function Login() {
       setCookie('nlw-token', response.data.token)
 
       push('/bolao')
-    } catch {
+    } catch (err) {
+      console.log(err)
       toast.error('Ocorreu um erro ao fazer seu login, tente novamente!')
     }
   }
